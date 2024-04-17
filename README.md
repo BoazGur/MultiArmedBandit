@@ -1,6 +1,6 @@
 # MultiArmedBandit
 
-<h1> Advertisement Bandit </h1>
+<h2> Advertisement Bandit </h2>
 
 <p>
     The Advertisement Optimization Bandit represents the challenge faced by news websites in
@@ -19,7 +19,7 @@
     bandit algorithms are used in A/B testing and other optimization problems.
 </p>
 
-<h1> Content Personalization Bandit </h1>
+<h2> Content Personalization Bandit </h2>
 
 <p>
     The Content Personalization Bandit represents the challenge faced by streaming platforms in

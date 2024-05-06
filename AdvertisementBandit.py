@@ -20,7 +20,7 @@ class AdvertisementBandit(Bandit):
         # Maximal reward
         self.best_prob = max(self.probs)
 
-    def genereate_reward(self, index):
+    def generate_reward(self, index):
         # The player selected the ad placement of index
         if np.random.random() < self.probs[index]:
             return 1 # User clicks on ad

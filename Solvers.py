@@ -5,12 +5,12 @@ from time import time
 import numpy as np
 
 from ContentPeronalizationBandit import ContentPersonalizationBandit
-from AdvertisementBandit import AdvertiseBandit
+from AdvertisementBandit import AdvertisementBandit
 
 
 class Solver(object):
     def __init__(self, bandit):
-        assert isinstance(bandit, AdvertiseBandit) or isinstance(
+        assert isinstance(bandit, AdvertisementBandit) or isinstance(
             bandit, ContentPersonalizationBandit)
 
         np.random.seed(int(time()))
@@ -86,7 +86,7 @@ class UCB1(Solver):
         self.estimates = [init_prob] * self.bandit.num_bandits
 
     @property
-    def estimated_probas(self):
+    def estimated_probs(self):
         return self.estimates
 
     def run_one_step(self):
@@ -116,7 +116,7 @@ class BayesianUCB(Solver):
         self.X2estimates = [init_prob] * self.bandit.num_bandits
 
     @property
-    def estimated_probas(self):
+    def estimated_probs(self):
         return [self._as[i] / float(self._as[i] + self._bs[i]) for i in range(self.bandit.num_bandits)]
 
     def run_one_step(self):
@@ -146,7 +146,7 @@ class ThompsonSampling(Solver):
         self._bs = [init_b] * self.bandit.num_bandits
 
     @property
-    def estimated_probas(self):
+    def estimated_probs(self):
         return [self._as[i] / (self._as[i] + self._bs[i]) for i in range(self.bandit.num_bandits)]
 
     def run_one_step(self):
